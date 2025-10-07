@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, Tag, RefreshCw, Sparkles } from "lucide-react";
-import featureMockup from "@/assets/feature-mockup.png";
+import calendarInterface from "@/assets/calendar-interface.png";
 
 const features = [
   {
@@ -81,8 +81,8 @@ const Features = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-large">
               <img
-                src={featureMockup}
-                alt="EventHub feature mockup showing unified event timeline"
+                src={calendarInterface}
+                alt="EventHub calendar interface showing multiple calendar views"
                 className="w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 mix-blend-overlay" />
@@ -91,6 +91,11 @@ const Features = () => {
             {/* Decorative elements */}
             <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-secondary/20 rounded-full blur-3xl" />
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl" />
+            
+            {/* Interface description */}
+            <p className="text-center text-muted-foreground mt-8 text-sm sm:text-base">
+              The interface is clean, intuitive, and easily customizable to fit any workflow.
+            </p>
           </motion.div>
         </div>
       </div>
