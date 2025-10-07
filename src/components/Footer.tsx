@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import brandIcon from "@/assets/brand-icon-eventhub.png";
 
 const Footer = () => {
   return (
@@ -7,7 +8,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-foreground mb-3">EventHub</h3>
+            <div className="flex items-center gap-3 mb-3">
+              <img 
+                src={brandIcon} 
+                alt="EventHub brand icon" 
+                className="h-8 w-8"
+              />
+              <h3 className="text-xl font-bold text-foreground">EventHub</h3>
+            </div>
             <p className="text-sm text-muted-foreground">
               All your calendars and events — finally in one place.
             </p>
