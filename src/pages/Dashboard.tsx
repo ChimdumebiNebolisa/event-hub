@@ -166,12 +166,12 @@ const Dashboard = () => {
           {/* Welcome Section */}
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
                 Welcome {user.displayName || user.email?.split('@')[0] || 'User'}! 👋
               </h1>
               <ThemeToggle size="sm" />
             </div>
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-6 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
               Your unified calendar dashboard
             </p>
             
