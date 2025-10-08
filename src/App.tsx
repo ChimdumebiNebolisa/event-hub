@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import Signup from "./pages/Signup";
 import SignIn from "./pages/SignIn";
 import Dashboard from "./pages/Dashboard";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

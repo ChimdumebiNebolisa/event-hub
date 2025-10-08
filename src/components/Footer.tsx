@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import brandIcon from "@/assets/brand-icon-eventhub.png";
 
 const Footer = () => {
@@ -42,12 +43,20 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/privacy-policy"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Privacy
-                </a>
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms-of-service"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Terms of Service
+                </Link>
               </li>
             </ul>
           </div>
@@ -91,24 +100,18 @@ const Footer = () => {
             © 2025 EventHub. Built with ❤️ by Chimdumebi Mitchell Nebolisa.
           </p>
           <div className="flex gap-6">
-            <a
-              href="#"
+            <Link
+              to="/terms-of-service"
               className="text-xs text-muted-foreground hover:text-primary transition-colors"
             >
-              Terms
-            </a>
-            <a
-              href="#"
+              Terms of Service
+            </Link>
+            <Link
+              to="/privacy-policy"
               className="text-xs text-muted-foreground hover:text-primary transition-colors"
             >
-              Privacy
-            </a>
-            <a
-              href="#"
-              className="text-xs text-muted-foreground hover:text-primary transition-colors"
-            >
-              Cookies
-            </a>
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>

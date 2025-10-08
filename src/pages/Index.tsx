@@ -5,6 +5,7 @@ import Integrations from "@/components/Integrations";
 import CTASection from "@/components/CTASection";
 import WhyIBuilt from "@/components/WhyIBuilt";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <CTASection />
       <WhyIBuilt />
       <Footer />
+      <CookieConsent />
     </main>
   );
 };
