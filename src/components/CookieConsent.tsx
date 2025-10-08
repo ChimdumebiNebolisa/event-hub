@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { X, Cookie, Shield, CheckCircle } from 'lucide-react';
+import { Cookie, Shield, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const CookieConsent = () => {
@@ -27,10 +27,6 @@ const CookieConsent = () => {
     }, 1000);
   };
 
-  const handleDecline = () => {
-    localStorage.setItem('cookie-consent', 'declined');
-    setIsVisible(false);
-  };
 
   const handleViewPrivacyPolicy = () => {
     navigate('/privacy-policy');
@@ -70,20 +66,12 @@ const CookieConsent = () => {
                       </p>
                     </div>
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={handleDecline}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    <X className="w-5 h-5" />
-                  </Button>
                 </div>
 
                 {/* Content */}
                 <div className="space-y-4">
                   <p className="text-gray-700 leading-relaxed">
-                    By using EventHub, you agree to our use of cookies and our Terms of Service. 
+                    To use EventHub, you must agree to our use of cookies and our Terms of Service. 
                     We use cookies to:
                   </p>
                   
@@ -140,26 +128,18 @@ const CookieConsent = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex justify-center">
                   <Button
                     onClick={handleAccept}
-                    className="flex-1 bg-primary hover:bg-primary/90 text-white"
+                    className="bg-primary hover:bg-primary/90 text-white px-12 py-3 text-lg font-semibold"
                     size="lg"
                   >
                     Accept & Continue
                   </Button>
-                  <Button
-                    onClick={handleDecline}
-                    variant="outline"
-                    className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50"
-                    size="lg"
-                  >
-                    Decline
-                  </Button>
                 </div>
 
                 <p className="text-xs text-gray-500 text-center">
-                  You can change your cookie preferences anytime in your browser settings.
+                  By continuing to use EventHub, you agree to our Terms of Service and Privacy Policy.
                 </p>
               </div>
             ) : (
