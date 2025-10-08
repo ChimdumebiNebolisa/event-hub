@@ -180,28 +180,50 @@ firebase deploy --project production
 
 ## 🛠️ Technology Stack
 
-### Frontend
-- **React 18** - Modern UI library with concurrent features
-- **TypeScript** - Type-safe development with enhanced IDE support
-- **Tailwind CSS** - Utility-first CSS framework
-- **shadcn/ui** - Accessible component library
-- **React Router** - Client-side routing
-- **React Hook Form** - Form management with validation
-- **Framer Motion** - Smooth animations and transitions
+### Frontend Technologies
+- **React 18.3.1** - Modern UI library with concurrent features, hooks, and context API
+- **TypeScript 5.8.3** - Type-safe development with enhanced IDE support and compile-time error checking
+- **Tailwind CSS 3.4.17** - Utility-first CSS framework with custom design system
+- **shadcn/ui** - Accessible component library built on Radix UI primitives
+- **React Router DOM 6.30.1** - Declarative routing with nested routes and navigation
+- **React Hook Form 7.61.1** - Performant forms with easy validation and error handling
+- **Framer Motion 12.23.22** - Production-ready motion library for smooth animations
+- **Lucide React** - Beautiful & consistent icon toolkit
+- **Sonner** - Toast notification system for user feedback
 
-### Backend & Services
-- **Firebase Authentication** - Multi-provider authentication
-- **Cloud Firestore** - NoSQL database with real-time updates
-- **Firebase Hosting** - Static site hosting with CDN
-- **Google Calendar API** - Calendar integration
-- **Microsoft Graph API** - Outlook integration
+### Backend & Cloud Services
+- **Firebase Authentication** - Multi-provider OAuth 2.0 authentication (Google, Microsoft)
+- **Cloud Firestore** - NoSQL document database with real-time synchronization
+- **Firebase Hosting** - Global CDN hosting with automatic SSL and custom domains
+- **Firebase Analytics** - User behavior tracking and performance monitoring
+- **Google Calendar API v3** - Full CRUD operations for Google Calendar integration
+- **Microsoft Graph API** - Outlook calendar and user data integration
 
-### Development Tools
-- **Vite** - Fast build tool and development server
-- **ESLint** - Code linting and quality assurance
-- **Prettier** - Code formatting
-- **Git** - Version control
-- **Firebase CLI** - Deployment and management
+### State Management & Data Flow
+- **React Context API** - Global state management for authentication and real-time data
+- **Custom Hooks** - Reusable logic for API calls, search, and real-time updates
+- **React Query (TanStack Query)** - Server state management with caching and synchronization
+- **Local Storage** - Persistent token storage and user preferences
+
+### Development & Build Tools
+- **Vite 5.4.19** - Lightning-fast build tool with HMR and optimized production builds
+- **ESLint 9.32.0** - Code linting with custom rules and React-specific configurations
+- **Prettier** - Consistent code formatting across the entire codebase
+- **PostCSS** - CSS processing with autoprefixer for cross-browser compatibility
+- **TypeScript ESLint** - TypeScript-specific linting rules and best practices
+
+### Version Control & Deployment
+- **Git** - Distributed version control with feature branching
+- **Firebase CLI** - Command-line interface for deployment and project management
+- **GitHub** - Source code repository with automated workflows
+- **Firebase CI/CD** - Automated deployment pipeline with staging and production environments
+
+### Testing & Quality Assurance
+- **React Testing Library** - Component testing with user-centric approach
+- **Jest** - Unit testing framework with snapshot testing
+- **Playwright** - End-to-end testing for user journeys
+- **Lighthouse** - Performance auditing and accessibility testing
+- **TypeScript Compiler** - Static type checking and error prevention
 
 ## 📈 Performance Metrics
 
@@ -257,9 +279,8 @@ firebase deploy
 ## 📞 Contact
 
 **Developer**: Chimdumebi Nebolisa
-**Email**: [Your Email]
-**LinkedIn**: [Your LinkedIn]
-**Portfolio**: [Your Portfolio]
+**Email**: chimdumebinebolisa@gmail.com
+**LinkedIn**: [Chimdumebi Nebolisa](https://www.linkedin.com/in/chimdumebi-nebolisa-020162389/)
 
 ---
 
