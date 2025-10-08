@@ -161,17 +161,17 @@ const Dashboard = () => {
     <DashboardThemeProvider>
       <div id="dashboard-container" className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <Navbar />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-16 pt-20 sm:pt-24">
+        <div className="container mx-auto px-6 sm:px-6 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-16 pt-24 sm:pt-24">
         <div className="max-w-8xl mx-auto">
           {/* Welcome Section */}
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">
+          <div className="text-center mb-12 sm:mb-12 lg:mb-16">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
                 Welcome {user.displayName || user.email?.split('@')[0] || 'User'}! 👋
               </h1>
               <ThemeToggle size="sm" />
             </div>
-            <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
               Your unified calendar dashboard
             </p>
             
@@ -194,7 +194,7 @@ const Dashboard = () => {
           </div>
 
           {/* Search and Filters */}
-          <div className="mb-8 sm:mb-12 lg:mb-16">
+          <div className="mb-12 sm:mb-12 lg:mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
               {/* Search and Filters */}
               <div className="lg:col-span-3 space-y-6">
