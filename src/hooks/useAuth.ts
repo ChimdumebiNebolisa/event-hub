@@ -11,6 +11,7 @@ import {
   OAuthProvider
 } from 'firebase/auth';
 import { auth, googleProvider, microsoftProvider } from '@/lib/firebase';
+import { clearAllTokens, checkTokenStatus } from '@/lib/tokenUtils';
 
 export const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -20,6 +21,15 @@ export const useAuth = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
+      
+      // Check token status when user changes
+      if (user) {
+        console.log('🔐 User authenticated:', user.email);
+        checkTokenStatus();
+      } else {
+        console.log('🚪 User signed out');
+        clearAllTokens();
+      }
     });
 
     return () => unsubscribe();
@@ -116,7 +126,20 @@ export const useAuth = () => {
     // Pre-check: See if Microsoft is already linked to current user
     const hasMicrosoft = user.providerData.some(provider => provider.providerId === 'microsoft.com');
     if (hasMicrosoft) {
-      throw new Error('Microsoft account is already linked to this user account. You can unlink it first if you want to link a different Microsoft account.');
+      console.log('Microsoft account already linked, refreshing token...');
+      // Instead of throwing an error, refresh the Microsoft token
+      try {
+        const result = await linkWithPopup(user, microsoftProvider);
+        const credential = OAuthProvider.credentialFromResult(result);
+        if (credential?.accessToken) {
+          localStorage.setItem('microsoft_access_token', credential.accessToken);
+          console.log('Microsoft access token refreshed successfully');
+        }
+        return result.user;
+      } catch (refreshError) {
+        console.warn('Failed to refresh Microsoft token, proceeding with existing link');
+        return user;
+      }
     }
     
     try {
@@ -125,12 +148,19 @@ export const useAuth = () => {
       
       // Extract the OAuth access token from the credential
       const credential = OAuthProvider.credentialFromResult(result);
+      console.log('Microsoft credential result:', {
+        hasAccessToken: !!credential?.accessToken,
+        hasIdToken: !!credential?.idToken,
+        credential: credential
+      });
+      
       if (credential?.accessToken) {
         // Store the access token for API calls
         localStorage.setItem('microsoft_access_token', credential.accessToken);
-        console.log('Microsoft access token stored successfully');
+        console.log('Microsoft access token stored successfully:', credential.accessToken.substring(0, 20) + '...');
       } else {
         console.warn('No access token found in Microsoft credential - calendar integration may not work');
+        console.log('Available credential data:', credential);
       }
       
       console.log('Microsoft account linked successfully');
@@ -228,12 +258,11 @@ export const useAuth = () => {
       await firebaseSignOut(auth);
       // Clear any cached data or tokens
       setUser(null);
-      // Clear stored access tokens
-      localStorage.removeItem('google_access_token');
-      localStorage.removeItem('microsoft_access_token');
-      console.log('Successfully signed out');
+      // Clear all stored access tokens using utility
+      clearAllTokens();
+      console.log('✅ Successfully signed out and cleared all tokens');
     } catch (error) {
-      console.error('Error signing out:', error);
+      console.error('❌ Error signing out:', error);
       throw error;
     }
   };

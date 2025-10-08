@@ -18,22 +18,24 @@ const SignIn = () => {
       toast.success('Welcome back! Successfully signed in with Google.');
       // Redirect to dashboard after successful login
       navigate('/dashboard');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Google sign in failed:', error);
       
       // Handle specific Firebase auth errors
-      if (error.code === 'auth/popup-closed-by-user') {
+      const errorCode = (error as { code?: string })?.code;
+      if (errorCode === 'auth/popup-closed-by-user') {
         toast.error('Sign in cancelled. Please try again.');
-      } else if (error.code === 'auth/popup-blocked') {
+      } else if (errorCode === 'auth/popup-blocked') {
         toast.error('Popup blocked. Please allow popups for this site.');
-      } else if (error.code === 'auth/cancelled-popup-request') {
+      } else if (errorCode === 'auth/cancelled-popup-request') {
         toast.error('Sign in cancelled. Please try again.');
-      } else if (error.code === 'auth/user-not-found') {
+      } else if (errorCode === 'auth/user-not-found') {
         toast.error('No account found with this email. Please sign up first.');
-      } else if (error.code === 'auth/wrong-password') {
+      } else if (errorCode === 'auth/wrong-password') {
         toast.error('Incorrect credentials. Please try again.');
       } else {
-        toast.error(`Sign in failed: ${error.message || 'Unknown error'}`);
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        toast.error(`Sign in failed: ${errorMessage}`);
       }
     } finally {
       setLoadingProvider(null);
@@ -48,7 +50,7 @@ const SignIn = () => {
       toast.success('Welcome back! Successfully signed in with Microsoft.');
       // Redirect to dashboard after successful login
       navigate('/dashboard');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Microsoft sign in failed:', error);
       
       // Handle specific Firebase auth errors
@@ -65,7 +67,8 @@ const SignIn = () => {
       } else if (error.code === 'auth/user-not-found') {
         toast.error('No account found with this email. Please sign up first.');
       } else {
-        toast.error(`Sign in failed: ${error.message || 'Unknown error'}`);
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        toast.error(`Sign in failed: ${errorMessage}`);
       }
     } finally {
       setLoadingProvider(null);

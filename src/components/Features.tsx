@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Tag, RefreshCw, Sparkles } from "lucide-react";
+import { Calendar, RefreshCw, Sparkles } from "lucide-react";
 import calendarInterface from "@/assets/calendar-interface.png";
 
 const features = [
@@ -9,11 +9,6 @@ const features = [
     icon: Calendar,
     title: "Unified timeline of all events",
     description: "See your entire schedule from multiple calendars in one clean feed.",
-  },
-  {
-    icon: Tag,
-    title: "Add personal tags",
-    description: "Organize events with custom tags for work, personal, urgent, and more.",
   },
   {
     icon: RefreshCw,

@@ -203,3 +203,180 @@ All colors MUST be HSL.
     animation: shimmer 2s infinite;
   }
 }
+
+/* Dashboard-specific Dark Theme */
+.dashboard-theme-dark {
+  /* Override CSS variables for dark mode */
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 84% 4.9%;
+  
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  
+  --radius: 0.5rem;
+}
+
+/* Dark theme specific styles for dashboard */
+.dashboard-theme-dark {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.dashboard-theme-dark .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, hsl(222.2 84% 4.9%), hsl(217.2 32.6% 17.5%));
+}
+
+.dashboard-theme-dark .bg-blue-50 {
+  background-color: hsl(217.2 32.6% 17.5%);
+}
+
+.dashboard-theme-dark .bg-indigo-100 {
+  background-color: hsl(217.2 32.6% 17.5%);
+}
+
+.dashboard-theme-dark .text-gray-900 {
+  color: hsl(var(--foreground));
+}
+
+.dashboard-theme-dark .text-gray-600 {
+  color: hsl(var(--muted-foreground));
+}
+
+.dashboard-theme-dark .text-gray-500 {
+  color: hsl(var(--muted-foreground));
+}
+
+.dashboard-theme-dark .border-gray-200 {
+  border-color: hsl(var(--border));
+}
+
+.dashboard-theme-dark .border-gray-300 {
+  border-color: hsl(var(--border));
+}
+
+/* Dark theme for specific components */
+.dashboard-theme-dark .bg-white {
+  background-color: hsl(var(--card));
+}
+
+.dashboard-theme-dark .bg-gray-50 {
+  background-color: hsl(var(--muted));
+}
+
+.dashboard-theme-dark .bg-gray-100 {
+  background-color: hsl(var(--muted));
+}
+
+.dashboard-theme-dark .bg-yellow-50 {
+  background-color: hsl(45 93% 15%);
+}
+
+.dashboard-theme-dark .bg-orange-50 {
+  background-color: hsl(25 95% 15%);
+}
+
+.dashboard-theme-dark .bg-green-50 {
+  background-color: hsl(142 76% 15%);
+}
+
+.dashboard-theme-dark .bg-blue-50 {
+  background-color: hsl(214 95% 15%);
+}
+
+.dashboard-theme-dark .bg-purple-50 {
+  background-color: hsl(262 83% 15%);
+}
+
+/* Dark theme text colors */
+.dashboard-theme-dark .text-yellow-600 {
+  color: hsl(45 93% 70%);
+}
+
+.dashboard-theme-dark .text-orange-600 {
+  color: hsl(25 95% 70%);
+}
+
+.dashboard-theme-dark .text-green-600 {
+  color: hsl(142 76% 70%);
+}
+
+.dashboard-theme-dark .text-blue-600 {
+  color: hsl(214 95% 70%);
+}
+
+.dashboard-theme-dark .text-purple-600 {
+  color: hsl(262 83% 70%);
+}
+
+/* Dark theme borders */
+.dashboard-theme-dark .border-yellow-500 {
+  border-color: hsl(45 93% 50%);
+}
+
+.dashboard-theme-dark .border-orange-500 {
+  border-color: hsl(25 95% 50%);
+}
+
+.dashboard-theme-dark .border-green-500 {
+  border-color: hsl(142 76% 50%);
+}
+
+.dashboard-theme-dark .border-blue-500 {
+  border-color: hsl(214 95% 50%);
+}
+
+.dashboard-theme-dark .border-purple-500 {
+  border-color: hsl(262 83% 50%);
+}
+
+/* Dark theme hover states */
+.dashboard-theme-dark .hover\:bg-gray-50:hover {
+  background-color: hsl(var(--muted));
+}
+
+/* Dark theme for badges */
+.dashboard-theme-dark .bg-blue-50 {
+  background-color: hsl(214 95% 15%);
+}
+
+.dashboard-theme-dark .border-blue-500 {
+  border-color: hsl(214 95% 50%);
+}
+
+.dashboard-theme-dark .text-blue-600 {
+  color: hsl(214 95% 70%);
+}
+
+.dashboard-theme-dark .bg-orange-50 {
+  background-color: hsl(25 95% 15%);
+}
+
+.dashboard-theme-dark .border-orange-500 {
+  border-color: hsl(25 95% 50%);
+}
+
+.dashboard-theme-dark .text-orange-600 {
+  color: hsl(25 95% 70%);
+}

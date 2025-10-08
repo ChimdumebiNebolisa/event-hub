@@ -261,19 +261,19 @@ const Hero = () => {
             {/* Additional floating notification */}
             <motion.div
               initial={{ opacity: 0, y: 20, x: 20 }}
-              animate={{ opacity: 1, y: 0, x: 0 }}
-              transition={{ delay: 2.5, duration: 0.8 }}
-              className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-sm rounded-lg shadow-medium px-3 py-2 border border-white/20"
-              animate={{
-                y: [0, -5, 0],
+              animate={{ 
+                opacity: 1, 
+                y: [0, -5, 0], 
+                x: 0,
                 rotate: [0, 1, -1, 0],
               }}
               transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 2.5,
+                opacity: { delay: 2.5, duration: 0.8 },
+                x: { delay: 2.5, duration: 0.8 },
+                y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
+                rotate: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
               }}
+              className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-sm rounded-lg shadow-medium px-3 py-2 border border-white/20"
             >
               <div className="flex items-center gap-2">
                 <motion.div

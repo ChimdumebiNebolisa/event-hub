@@ -19,7 +19,7 @@ const Signup = () => {
       toast.success('Successfully signed in with Google!');
       // Redirect to dashboard after successful login
       navigate('/dashboard');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Google sign in failed:', error);
       
       // Handle specific Firebase auth errors
@@ -45,7 +45,7 @@ const Signup = () => {
       toast.success('Successfully signed in with Microsoft!');
       // Redirect to dashboard after successful login
       navigate('/dashboard');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Microsoft sign in failed:', error);
       
       // Handle specific Firebase auth errors

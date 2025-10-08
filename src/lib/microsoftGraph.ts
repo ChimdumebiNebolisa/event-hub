@@ -58,10 +58,19 @@ class MicrosoftGraphAPI {
         throw new Error('Microsoft access token not found. Please sign out and sign in again to refresh your access.');
       }
 
+      console.log('Microsoft access token found:', accessToken.substring(0, 20) + '...');
+
       // Check if token is expired (basic check - tokens typically last 1 hour)
       try {
         const tokenData = JSON.parse(atob(accessToken.split('.')[1]));
         const currentTime = Math.floor(Date.now() / 1000);
+        console.log('Token expiration check:', {
+          exp: tokenData.exp,
+          currentTime,
+          isExpired: tokenData.exp && tokenData.exp < currentTime,
+          scopes: tokenData.scp || tokenData.scope
+        });
+        
         if (tokenData.exp && tokenData.exp < currentTime) {
           console.warn('Microsoft access token appears to be expired');
           throw new Error('Microsoft access token has expired. Please sign out and sign in again.');
@@ -90,22 +99,29 @@ class MicrosoftGraphAPI {
         },
       });
 
+      console.log('Microsoft Graph API response:', {
+        status: response.status,
+        statusText: response.statusText,
+        headers: Object.fromEntries(response.headers.entries())
+      });
+
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         console.error('Microsoft Graph API error:', {
           status: response.status,
           statusText: response.statusText,
-          error: errorData
+          error: errorData,
+          url: `${this.baseUrl}/me/calendars`
         });
         
         if (response.status === 401) {
-          throw new Error('Microsoft access token is invalid or expired. Please sign out and sign in again.');
+          throw new Error(`Microsoft access token is invalid or expired. Error: ${errorData.error?.message || 'Unauthorized'}. Please sign out and sign in again.`);
         } else if (response.status === 403) {
-          throw new Error('Insufficient permissions to access Microsoft calendars. Please ensure the app has calendar access permissions.');
+          throw new Error(`Insufficient permissions to access Microsoft calendars. Error: ${errorData.error?.message || 'Forbidden'}. Please ensure the app has calendar access permissions.`);
         } else if (response.status === 429) {
           throw new Error('Too many requests to Microsoft Graph API. Please wait a moment and try again.');
         } else {
-          throw new Error(`Failed to fetch calendars: ${response.statusText} (${response.status})`);
+          throw new Error(`Failed to fetch calendars: ${errorData.error?.message || response.statusText} (${response.status})`);
         }
       }
 

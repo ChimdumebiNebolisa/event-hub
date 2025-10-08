@@ -1,6 +1,63 @@
 // Unified event and calendar types for both Google and Microsoft calendars
 import { parseGoogleCalendarDate, isValidEventDate } from './utils';
 
+// Google Calendar API types
+interface GoogleEvent {
+  id: string;
+  summary?: string;
+  start: {
+    dateTime?: string;
+    date?: string;
+  };
+  end: {
+    dateTime?: string;
+    date?: string;
+  };
+  location?: string;
+  attendees?: Array<{
+    email: string;
+    displayName?: string;
+    responseStatus?: string;
+  }>;
+  organizer?: {
+    email: string;
+    displayName?: string;
+  };
+  description?: string;
+  htmlLink?: string;
+}
+
+// Microsoft Graph API types
+interface MicrosoftEvent {
+  id: string;
+  subject?: string;
+  start: {
+    dateTime: string;
+  };
+  end: {
+    dateTime: string;
+  };
+  isAllDay?: boolean;
+  location?: {
+    displayName?: string;
+  };
+  attendees?: Array<{
+    emailAddress: {
+      address: string;
+      name?: string;
+    };
+    status: {
+      response: string;
+    };
+  }>;
+  organizer?: {
+    emailAddress: {
+      address: string;
+      name?: string;
+    };
+  };
+}
+
 export interface UnifiedEvent {
   id: string;
   title: string;
@@ -40,7 +97,7 @@ export interface CalendarEventGroup {
 
 // Helper function to convert Google Calendar event to unified format
 export function convertGoogleEvent(
-  event: any,
+  event: GoogleEvent,
   calendar: { id: string; summary: string; backgroundColor?: string }
 ): UnifiedEvent {
   const startDate = event.start.dateTime || event.start.date;
@@ -90,28 +147,28 @@ export function convertGoogleEvent(
     start: startDateTime,
     end: endDateTime,
     isAllDay,
-    location: event.location,
-    attendees: event.attendees?.map((attendee: any) => ({
+    ...(event.location && { location: event.location }),
+    ...(event.attendees && { attendees: event.attendees.map((attendee) => ({
       email: attendee.email,
-      name: attendee.displayName,
-      status: attendee.responseStatus,
-    })),
-    organizer: event.organizer ? {
+      ...(attendee.displayName && { name: attendee.displayName }),
+      ...(attendee.responseStatus && { status: attendee.responseStatus }),
+    })) }),
+    ...(event.organizer && { organizer: {
       email: event.organizer.email,
-      name: event.organizer.displayName,
-    } : undefined,
-    description: event.description,
+      ...(event.organizer.displayName && { name: event.organizer.displayName }),
+    } }),
+    ...(event.description && { description: event.description }),
     calendarId: calendar.id,
     calendarName: calendar.summary,
     calendarColor: calendar.backgroundColor || '#4285f4',
-    source: 'google',
-    htmlLink: event.htmlLink,
+    source: 'google' as const,
+    ...(event.htmlLink && { htmlLink: event.htmlLink }),
   };
 }
 
 // Helper function to convert Microsoft Calendar event to unified format
 export function convertMicrosoftEvent(
-  event: any,
+  event: MicrosoftEvent,
   calendar: { id: string; name: string; color: string }
 ): UnifiedEvent {
 
@@ -150,19 +207,19 @@ export function convertMicrosoftEvent(
     start: startDateTime,
     end: endDateTime,
     isAllDay: event.isAllDay || false,
-    location: event.location?.displayName,
-    attendees: event.attendees?.map((attendee: any) => ({
+    ...(event.location?.displayName && { location: event.location.displayName }),
+    ...(event.attendees && { attendees: event.attendees.map((attendee) => ({
       email: attendee.emailAddress.address,
-      name: attendee.emailAddress.name,
-      status: attendee.status.response,
-    })),
-    organizer: event.organizer ? {
+      ...(attendee.emailAddress.name && { name: attendee.emailAddress.name }),
+      ...(attendee.status.response && { status: attendee.status.response }),
+    })) }),
+    ...(event.organizer && { organizer: {
       email: event.organizer.emailAddress.address,
-      name: event.organizer.emailAddress.name,
-    } : undefined,
+      ...(event.organizer.emailAddress.name && { name: event.organizer.emailAddress.name }),
+    } }),
     calendarId: calendar.id,
     calendarName: calendar.name,
     calendarColor: calendar.color || '#0078d4',
-    source: 'microsoft',
+    source: 'microsoft' as const,
   };
 }
