@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, LogIn } from "lucide-react";
 import { useAuthContext } from "@/contexts/AuthContext";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "sonner";
 
-const Signup = () => {
+const SignIn = () => {
   const { signInWithGoogle, signInWithMicrosoft } = useAuthContext();
-  const [loading, setLoading] = useState(false);
   const [loadingProvider, setLoadingProvider] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -16,7 +15,7 @@ const Signup = () => {
     try {
       const user = await signInWithGoogle();
       console.log('Google sign in successful:', user);
-      toast.success('Successfully signed in with Google!');
+      toast.success('Welcome back! Successfully signed in with Google.');
       // Redirect to dashboard after successful login
       navigate('/dashboard');
     } catch (error: any) {
@@ -29,6 +28,10 @@ const Signup = () => {
         toast.error('Popup blocked. Please allow popups for this site.');
       } else if (error.code === 'auth/cancelled-popup-request') {
         toast.error('Sign in cancelled. Please try again.');
+      } else if (error.code === 'auth/user-not-found') {
+        toast.error('No account found with this email. Please sign up first.');
+      } else if (error.code === 'auth/wrong-password') {
+        toast.error('Incorrect credentials. Please try again.');
       } else {
         toast.error(`Sign in failed: ${error.message || 'Unknown error'}`);
       }
@@ -42,7 +45,7 @@ const Signup = () => {
     try {
       const user = await signInWithMicrosoft();
       console.log('Microsoft sign in successful:', user);
-      toast.success('Successfully signed in with Microsoft!');
+      toast.success('Welcome back! Successfully signed in with Microsoft.');
       // Redirect to dashboard after successful login
       navigate('/dashboard');
     } catch (error: any) {
@@ -59,6 +62,8 @@ const Signup = () => {
         toast.error('Microsoft sign-in is not enabled. Please check Firebase configuration.');
       } else if (error.code === 'auth/account-exists-with-different-credential') {
         toast.error('An account with this email already exists using Google sign-in. Please sign in with Google first, then link your Microsoft account from the dashboard.');
+      } else if (error.code === 'auth/user-not-found') {
+        toast.error('No account found with this email. Please sign up first.');
       } else {
         toast.error(`Sign in failed: ${error.message || 'Unknown error'}`);
       }
@@ -75,11 +80,14 @@ const Signup = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-md mx-auto bg-white rounded-2xl shadow-glow p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">
-              Welcome to EventHub
-            </h1>
+            <div className="flex items-center justify-center mb-4">
+              <LogIn className="w-8 h-8 text-primary mr-2" />
+              <h1 className="text-3xl font-bold text-foreground">
+                Welcome Back
+              </h1>
+            </div>
             <p className="text-muted-foreground">
-              Sign in to get started with unified calendar management
+              Sign in to continue with your unified calendar management
             </p>
           </div>
 
@@ -128,32 +136,33 @@ const Signup = () => {
             </Button>
 
             <p className="text-xs text-center text-muted-foreground">
-              Connect your Google or Microsoft account to get started
+              Sign in with your existing Google or Microsoft account
             </p>
           </div>
 
-          {/* Sign in link */}
+          {/* Sign up link */}
           <div className="mt-6 text-center">
             <p className="text-sm text-muted-foreground">
-              Already have an account?{" "}
+              Don't have an account?{" "}
               <Link 
-                to="/signin" 
+                to="/signup" 
                 className="text-primary hover:text-primary/80 font-medium transition-colors"
               >
-                Sign in here
+                Sign up here
               </Link>
             </p>
           </div>
 
           <div className="mt-6 text-center">
-            <Button
-              variant="ghost"
-              onClick={() => (window.location.href = "/")}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to home
-            </Button>
+            <Link to="/">
+              <Button
+                variant="ghost"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to home
+              </Button>
+            </Link>
           </div>
 
           <p className="text-xs text-center text-muted-foreground mt-6">
@@ -165,4 +174,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignIn;
