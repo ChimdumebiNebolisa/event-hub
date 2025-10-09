@@ -1,10 +1,10 @@
-# 🗓️ Unified Event Flow - Calendar Management Platform
+# 🗓️ Event Hub - Calendar Management Platform
 
 > **A comprehensive full-stack web application that unifies Google Calendar and Microsoft Outlook events into a single, intuitive dashboard with real-time synchronization and advanced filtering capabilities.**
 
 ## 🎯 Project Overview
 
-Unified Event Flow is a modern, responsive web application designed to solve the common problem of managing multiple calendar accounts across different platforms. Built with cutting-edge technologies and best practices, this project demonstrates expertise in full-stack development, API integration, real-time data management, and user experience design.
+Event Hub is a modern, responsive web application designed to solve the common problem of managing multiple calendar accounts across different platforms. Built with cutting-edge technologies and best practices, this project demonstrates expertise in full-stack development, API integration, real-time data management, and user experience design.
 
 **Live Demo**: [https://event-hub-38053.web.app](https://event-hub-38053.web.app)
 
@@ -284,4 +284,4 @@ firebase deploy
 
 ---
 
-*This project demonstrates expertise in modern web development, API integration, real-time systems, and user experience design. Built with scalability, performance, and maintainability in mind.*
+*Event Hub demonstrates expertise in modern web development, API integration, real-time systems, and user experience design. Built with scalability, performance, and maintainability in mind.*
