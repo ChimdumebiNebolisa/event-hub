@@ -195,7 +195,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2.0, duration: 0.5 }}
-              className="text-white/60 text-sm mt-6"
+              className="text-white/60 text-sm mt-6 relative z-10"
             >
               Free to use · No credit card required
             </motion.p>
@@ -232,7 +232,7 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* Enhanced floating elements */}
+            {/* Enhanced floating elements - Hidden on mobile */}
             <motion.div
               animate={{
                 y: [0, -10, 0],
@@ -243,7 +243,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute -top-4 -right-4 bg-white rounded-xl shadow-large px-4 py-3 border border-primary/20"
+              className="hidden md:block absolute -top-4 -right-4 bg-white rounded-xl shadow-large px-4 py-3 border border-primary/20"
               whileHover={{ scale: 1.05 }}
             >
               <div className="flex items-center gap-2">
@@ -258,7 +258,7 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Additional floating notification */}
+            {/* Additional floating notification - Hidden on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20, x: 20 }}
               animate={{ 
@@ -273,7 +273,7 @@ const Hero = () => {
                 y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
                 rotate: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2.5 },
               }}
-              className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-sm rounded-lg shadow-medium px-3 py-2 border border-white/20"
+              className="hidden md:block absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-sm rounded-lg shadow-medium px-3 py-2 border border-white/20"
             >
               <div className="flex items-center gap-2">
                 <motion.div

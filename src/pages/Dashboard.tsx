@@ -190,7 +190,7 @@ const Dashboard = () => {
     <DashboardThemeProvider>
       <div id="dashboard-container" className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <Navbar />
-        <div className="container mx-auto px-6 sm:px-6 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-16 pt-24 sm:pt-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 py-6 sm:py-12 lg:py-16 pt-24 sm:pt-24">
         <div className="max-w-8xl mx-auto">
           {/* Welcome Section */}
           <div className="text-center mb-12 sm:mb-12 lg:mb-16">
@@ -302,16 +302,16 @@ const Dashboard = () => {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12 lg:mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 lg:mb-16">
             <Card className="hover:shadow-lg transition-shadow duration-200">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <div className="p-3 sm:p-4 bg-primary/10 rounded-xl">
-                    <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+              <CardContent className="p-4 sm:p-6 md:p-8">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+                  <div className="p-2 sm:p-3 md:p-4 bg-primary/10 rounded-xl">
+                    <Calendar className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
                   </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">{searchStats.filtered}</p>
-                    <p className="text-sm sm:text-base text-gray-600 font-medium">
+                  <div className="min-w-0">
+                    <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">{searchStats.filtered}</p>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">
                       {hasActiveFilters ? 'Filtered Events' : 'Total Events'}
                     </p>
                   </div>
@@ -320,46 +320,46 @@ const Dashboard = () => {
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow duration-200">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <div className="p-3 sm:p-4 bg-green-100 rounded-xl">
-                    <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+              <CardContent className="p-4 sm:p-6 md:p-8">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+                  <div className="p-2 sm:p-3 md:p-4 bg-green-100 rounded-xl">
+                    <Calendar className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-green-600" />
                   </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">{calendars.length}</p>
-                    <p className="text-sm sm:text-base text-gray-600 font-medium">Connected Calendars</p>
+                  <div className="min-w-0">
+                    <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">{calendars.length}</p>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">Connected Calendars</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow duration-200">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <div className="p-3 sm:p-4 bg-blue-100 rounded-xl">
-                    <RefreshCw className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+              <CardContent className="p-4 sm:p-6 md:p-8">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+                  <div className="p-2 sm:p-3 md:p-4 bg-blue-100 rounded-xl">
+                    <RefreshCw className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-blue-600" />
                   </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
+                  <div className="min-w-0">
+                    <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
                       {filteredEvents.filter(e => e.start >= new Date()).length}
                     </p>
-                    <p className="text-sm sm:text-base text-gray-600 font-medium">Upcoming Events</p>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">Upcoming Events</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow duration-200">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <div className="p-3 sm:p-4 bg-purple-100 rounded-xl">
-                    <User className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+              <CardContent className="p-4 sm:p-6 md:p-8">
+                <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
+                  <div className="p-2 sm:p-3 md:p-4 bg-purple-100 rounded-xl">
+                    <User className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-purple-600" />
                   </div>
-                  <div>
-                    <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
+                  <div className="min-w-0">
+                    <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
                       {user?.providerData.length || 0}
                     </p>
-                    <p className="text-sm sm:text-base text-gray-600 font-medium">Connected Accounts</p>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 font-medium">Connected Accounts</p>
                   </div>
                 </div>
               </CardContent>
@@ -381,7 +381,7 @@ const Dashboard = () => {
               <CardContent>
                 <div className="space-y-4 sm:space-y-6">
                   {/* Google Calendar Connection */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 sm:p-6 border-2 border-gray-200 rounded-xl gap-4 sm:gap-0 hover:border-primary/30 transition-colors duration-200">
+                  <div className="flex flex-col gap-4 p-4 sm:p-6 border-2 border-gray-200 rounded-xl hover:border-primary/30 transition-colors duration-200">
                     <div className="flex items-center gap-4 min-w-0 flex-1">
                       <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                         <Calendar className="w-5 h-5 text-blue-600" />
@@ -395,7 +395,7 @@ const Dashboard = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-shrink-0 w-full sm:w-auto sm:ml-4">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-shrink-0 w-full sm:w-auto">
                       {user?.providerData.some(provider => provider.providerId === 'google.com') ? (
                         <>
                           <Button 
@@ -450,7 +450,7 @@ const Dashboard = () => {
                   </div>
 
                   {/* Microsoft Calendar Connection */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 sm:p-6 border-2 border-gray-200 rounded-xl gap-4 sm:gap-0 hover:border-primary/30 transition-colors duration-200">
+                  <div className="flex flex-col gap-4 p-4 sm:p-6 border-2 border-gray-200 rounded-xl hover:border-primary/30 transition-colors duration-200">
                     <div className="flex items-center gap-4 min-w-0 flex-1">
                       <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
                         <Calendar className="w-5 h-5 text-orange-600" />
@@ -464,7 +464,7 @@ const Dashboard = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-shrink-0 w-full sm:w-auto sm:ml-4">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-shrink-0 w-full sm:w-auto">
                       {user?.providerData.some(provider => provider.providerId === 'microsoft.com') ? (
                         <>
                           <Button 
@@ -535,18 +535,18 @@ const Dashboard = () => {
           </div>
 
           {/* Account Details - Collapsible */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <Card>
               <CardHeader 
-                className="cursor-pointer hover:bg-gray-50 transition-colors"
+                className="cursor-pointer hover:bg-gray-50 transition-colors p-4 sm:p-6"
                 onClick={() => setShowAccountDetails(!showAccountDetails)}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <User className="w-5 h-5" />
                     <div>
-                      <CardTitle>Account Info</CardTitle>
-                      <CardDescription>
+                      <CardTitle className="text-lg sm:text-xl">Account Info</CardTitle>
+                      <CardDescription className="text-sm">
                         Your connected account details
                       </CardDescription>
                     </div>
@@ -559,7 +559,7 @@ const Dashboard = () => {
                 </div>
               </CardHeader>
               {showAccountDetails && (
-                <CardContent>
+                <CardContent className="p-4 sm:p-6">
                   <div className="space-y-4">
                     <div className="p-4 bg-gray-50 rounded-lg">
                       <h4 className="text-sm font-medium text-gray-900 mb-3">Account Details</h4>
@@ -614,20 +614,20 @@ const Dashboard = () => {
           </div>
 
           {/* Delete Account Section */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <Card className="border-red-200 bg-red-50/50">
-              <CardHeader>
+              <CardHeader className="p-4 sm:p-6">
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-red-600" />
                   <div>
-                    <CardTitle className="text-red-800">Danger Zone</CardTitle>
-                    <CardDescription className="text-red-600">
+                    <CardTitle className="text-red-800 text-lg sm:text-xl">Danger Zone</CardTitle>
+                    <CardDescription className="text-red-600 text-sm">
                       Irreversible and destructive actions
                     </CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 sm:p-6">
                 <div className="space-y-4">
                   <div className="p-4 bg-red-100 border border-red-200 rounded-lg">
                     <h4 className="font-semibold text-red-800 mb-2">Delete Account</h4>

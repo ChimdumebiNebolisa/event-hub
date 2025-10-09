@@ -30,8 +30,8 @@ const Problem = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="relative max-w-6xl mx-auto"
           >
-            {/* Enhanced timeline animation */}
-            <div className="relative w-full h-96 mx-auto flex items-center justify-center">
+            {/* Enhanced timeline animation - Simplified on mobile */}
+            <div className="relative w-full h-64 md:h-96 mx-auto flex items-center justify-center">
               {/* Background glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-orange-500/5 rounded-3xl blur-3xl" />
               
@@ -295,12 +295,12 @@ const Problem = () => {
                   ))}
                 </motion.div>
 
-                {/* Enhanced success indicators with better positioning */}
+                {/* Enhanced success indicators with better positioning - Hidden on mobile */}
                 <motion.div
                   initial={{ scale: 0, opacity: 0, x: 20 }}
                   animate={isInView ? { scale: 1, opacity: 1, x: 0 } : {}}
                   transition={{ delay: 4, duration: 0.6, type: "spring" }}
-                  className="absolute right-1/4 top-1/4"
+                  className="hidden md:block absolute right-1/4 top-1/4"
                 >
                   <div className="flex items-center gap-2 bg-green-50 border-2 border-green-200 rounded-full px-4 py-2 shadow-lg backdrop-blur-sm">
                     <motion.div
@@ -316,7 +316,7 @@ const Problem = () => {
                   initial={{ scale: 0, opacity: 0, x: 20 }}
                   animate={isInView ? { scale: 1, opacity: 1, x: 0 } : {}}
                   transition={{ delay: 4.3, duration: 0.6, type: "spring" }}
-                  className="absolute right-1/4 bottom-1/4"
+                  className="hidden md:block absolute right-1/4 bottom-1/4"
                 >
                   <div className="flex items-center gap-2 bg-blue-50 border-2 border-blue-200 rounded-full px-4 py-2 shadow-lg backdrop-blur-sm">
                     <motion.div
@@ -328,12 +328,12 @@ const Problem = () => {
                   </div>
                 </motion.div>
 
-                {/* Additional floating elements */}
+                {/* Additional floating elements - Hidden on mobile */}
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   animate={isInView ? { scale: 1, opacity: 1 } : {}}
                   transition={{ delay: 4.6, duration: 0.5 }}
-                  className="absolute left-1/4 top-1/4"
+                  className="hidden md:block absolute left-1/4 top-1/4"
                 >
                   <div className="flex items-center gap-2 bg-purple-50 border-2 border-purple-200 rounded-full px-4 py-2 shadow-lg backdrop-blur-sm">
                     <motion.div
