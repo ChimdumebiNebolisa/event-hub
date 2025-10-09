@@ -49,7 +49,7 @@ const TermsOfService = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  By accessing and using EventHub ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                  By accessing and using Event Hub ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
                 </p>
                 <p>
                   EventHub is a calendar synchronization service that allows users to view events from multiple calendar providers (Google Calendar and Microsoft Outlook) in a unified interface.

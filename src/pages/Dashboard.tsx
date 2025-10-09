@@ -632,7 +632,7 @@ const Dashboard = () => {
                   <div className="p-4 bg-red-100 border border-red-200 rounded-lg">
                     <h4 className="font-semibold text-red-800 mb-2">Delete Account</h4>
                     <p className="text-sm text-red-700 mb-4">
-                      Permanently delete your EventHub account and all associated data. This action cannot be undone.
+                      Permanently delete your Event Hub account and all associated data. This action cannot be undone.
                     </p>
                     <Button
                       variant="destructive"
@@ -654,7 +654,7 @@ const Dashboard = () => {
         open={confirmDialog.open}
         onOpenChange={(open) => setConfirmDialog(prev => ({ ...prev, open }))}
         title={`Disconnect ${confirmDialog.providerName} Calendar`}
-        description={`This will disconnect your ${confirmDialog.providerName} calendar from EventHub. Your ${confirmDialog.providerName} account will remain signed in, but calendar events will no longer be synced. You can reconnect your calendar anytime.`}
+        description={`This will disconnect your ${confirmDialog.providerName} calendar from Event Hub. Your ${confirmDialog.providerName} account will remain signed in, but calendar events will no longer be synced. You can reconnect your calendar anytime.`}
         confirmText="Disconnect Calendar"
         cancelText="Cancel"
         onConfirm={confirmUnlinkProvider}
@@ -666,7 +666,7 @@ const Dashboard = () => {
         open={deleteAccountDialog.open}
         onOpenChange={(open) => setDeleteAccountDialog(prev => ({ ...prev, open }))}
         title="Delete Account - Are you absolutely sure?"
-        description="This action cannot be undone. This will permanently delete your EventHub account and remove all of your data from our servers. You will lose access to all your calendar integrations and settings."
+        description="This action cannot be undone. This will permanently delete your Event Hub account and remove all of your data from our servers. You will lose access to all your calendar integrations and settings."
         confirmText="Yes, Delete My Account"
         cancelText="Cancel"
         onConfirm={handleDeleteAccount}

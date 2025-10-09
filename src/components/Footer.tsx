@@ -12,10 +12,10 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-3">
               <img 
                 src={brandIcon} 
-                alt="EventHub brand icon" 
+                alt="Event Hub brand icon" 
                 className="h-8 w-8"
               />
-              <h3 className="text-xl font-bold text-foreground">EventHub</h3>
+              <h3 className="text-xl font-bold text-foreground">Event Hub</h3>
             </div>
             <p className="text-sm text-muted-foreground">
               All your calendars and events — finally in one place.
@@ -98,7 +98,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="text-center sm:text-left">
             <p className="text-sm text-muted-foreground">
-              © 2025 EventHub. Built with ❤️ by{' '}
+              © 2025 Event Hub. Built with ❤️ by{' '}
               <a
                 href="mailto:chimdumebinebolisa@gmail.com"
                 className="text-primary hover:text-primary/80 transition-colors font-medium"
