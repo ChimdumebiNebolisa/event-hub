@@ -3,7 +3,7 @@ import { useAuthContext } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { LogOut, User, Menu, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import logoEventHub from "@/assets/logo-eventhub.png";
 
@@ -40,6 +40,20 @@ const Navbar = () => {
     }
     closeMobileMenu();
   };
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <motion.nav 
@@ -142,7 +156,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: '100%' }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="fixed inset-0 top-16 z-40 md:hidden"
+          className="fixed inset-0 top-16 z-50 md:hidden"
         >
           {/* Backdrop */}
           <div 
@@ -151,8 +165,19 @@ const Navbar = () => {
           />
           
           {/* Menu Panel */}
-          <div className="absolute right-0 top-0 w-80 max-w-[85vw] h-full bg-background border-l border-border shadow-2xl">
-            <div className="p-6 space-y-6">
+          <div className="absolute right-0 top-0 w-80 max-w-[85vw] h-[calc(100vh-4rem)] bg-background border-l border-border shadow-2xl overflow-y-auto">
+            <div className="p-6 pb-safe-area-inset-bottom space-y-6">
+              {/* Close Button */}
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={closeMobileMenu}
+                  className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  aria-label="Close mobile menu"
+                >
+                  <X className="w-5 h-5 text-muted-foreground" />
+                </button>
+              </div>
+
               {/* User Info (if logged in) */}
               {user && (
                 <div className="flex items-center gap-3 pb-4 border-b border-border">
