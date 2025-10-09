@@ -2,6 +2,7 @@ import { useAuthContext } from "@/contexts/AuthContext";
 import { useRealtimeContext } from "@/contexts/RealtimeContext";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, User, Mail, Link, RefreshCw, Unlink, AlertTriangle, ChevronDown, ChevronUp } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
@@ -20,19 +21,6 @@ import { DashboardThemeProvider } from "@/contexts/DashboardThemeContext";
 
 const Dashboard = () => {
   const { user, loading, linkMicrosoftAccount, unlinkProvider } = useAuthContext();
-  
-  // Guard against using context when user is not authenticated
-  if (!user) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
   const {
     events,
     calendars,
@@ -73,6 +61,18 @@ const Dashboard = () => {
     hasActiveFilters,
     searchStats,
   } = useEventSearch(events);
+  
+  // Guard against using context when user is not authenticated
+  if (!user) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   // Check if user has calendar access tokens
   const hasGoogleCalendarAccess = () => {

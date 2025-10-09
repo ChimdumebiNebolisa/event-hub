@@ -4,6 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "event-hub-38053",
     "public": "dist",
     "ignore": [
       "firebase.json",
