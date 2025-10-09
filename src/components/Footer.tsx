@@ -96,9 +96,26 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground text-center sm:text-left">
-            © 2025 EventHub. Built with ❤️ by Chimdumebi Mitchell Nebolisa.
-          </p>
+          <div className="text-center sm:text-left">
+            <p className="text-sm text-muted-foreground">
+              © 2025 EventHub. Built with ❤️ by{' '}
+              <a
+                href="mailto:chimdumebinebolisa@gmail.com"
+                className="text-primary hover:text-primary/80 transition-colors font-medium"
+              >
+                Chimdumebi Mitchell Nebolisa
+              </a>
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">
+              Contact:{' '}
+              <a
+                href="mailto:chimdumebinebolisa@gmail.com"
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                chimdumebinebolisa@gmail.com
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6">
             <Link
               to="/terms-of-service"
