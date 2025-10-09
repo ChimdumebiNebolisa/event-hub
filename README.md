@@ -10,8 +10,6 @@ Event Hub is a modern, responsive web application designed to solve the common p
 
 ## 🏗️ RECRUITMENT GATHERING
 
-**--ACCOMPLISHED comprehensive requirements gathering through stakeholder interviews and market research using Agile methodology--**
-
 - **Problem Identification**: Conducted user research to identify pain points in multi-calendar management
 - **Market Analysis**: Analyzed existing solutions (Google Calendar, Outlook, Calendly) to identify gaps
 - **User Stories**: Created detailed user personas and journey maps for different user types
