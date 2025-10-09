@@ -1,4 +1,4 @@
-# 🗓️ Unified Event Flow - Calendar Management Platform
+# 🗓️ Event - Calendar Management Platform
 
 > **A comprehensive full-stack web application that unifies Google Calendar and Microsoft Outlook events into a single, intuitive dashboard with real-time synchronization and advanced filtering capabilities.**
 
@@ -283,5 +283,3 @@ firebase deploy
 **LinkedIn**: [Chimdumebi Nebolisa](https://www.linkedin.com/in/chimdumebi-nebolisa-020162389/)
 
 ---
-
-*This project demonstrates expertise in modern web development, API integration, real-time systems, and user experience design. Built with scalability, performance, and maintainability in mind.*
