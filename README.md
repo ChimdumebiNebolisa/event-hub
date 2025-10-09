@@ -6,7 +6,7 @@
 
 Event Hub is a modern, responsive web application designed to solve the common problem of managing multiple calendar accounts across different platforms. Built with cutting-edge technologies and best practices, this project demonstrates expertise in full-stack development, API integration, real-time data management, and user experience design.
 
-**Live Demo**: [https://event-hub-38053.web.app](https://event-hub-38053.web.app)
+**Live Demo**: [https://eventhub.buzz](https://eventhub.buzz)
 
 ## 🏗️ RECRUITMENT GATHERING
 

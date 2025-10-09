@@ -7,7 +7,7 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyAgQ54alG6MtuJyWaL-Yzbts5in-KxwQWw",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "event-hub-38053.firebaseapp.com",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "eventhub.buzz",
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "event-hub-38053",
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "event-hub-38053.firebasestorage.app",
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "177985952477",

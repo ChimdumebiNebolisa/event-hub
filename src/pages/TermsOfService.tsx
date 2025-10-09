@@ -252,7 +252,7 @@ const TermsOfService = () => {
                 <div className="bg-gray-50 rounded-lg p-6">
                   <p><strong>Email:</strong> <a href="mailto:chimdumebinebolisa@gmail.com" className="text-primary hover:underline">chimdumebinebolisa@gmail.com</a></p>
                   <p><strong>Developer:</strong> Chimdumebi Nebolisa</p>
-                  <p><strong>Website:</strong> <a href="https://event-hub-38053.web.app" className="text-primary hover:underline">event-hub-38053.web.app</a></p>
+                  <p><strong>Website:</strong> <a href="https://eventhub.buzz" className="text-primary hover:underline">eventhub.buzz</a></p>
                 </div>
               </div>
             </section>
