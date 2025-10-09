@@ -107,8 +107,8 @@ const Navbar = () => {
             </button>
           )}
 
-          {/* Auth Section - Hidden on mobile when menu is open */}
-          {!isMobile || (isMobile && !isMobileMenuOpen) ? (
+          {/* Auth Section - Hidden on mobile for landing page, always visible on dashboard */}
+          {isDashboard || !isMobile ? (
             loading ? (
               <div className="px-4 py-2 text-sm text-muted-foreground">
                 Loading...
