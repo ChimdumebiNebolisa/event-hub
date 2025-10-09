@@ -32,11 +32,86 @@ const Problem = () => {
           >
             {/* Enhanced timeline animation - Simplified on mobile */}
             <div className="relative w-full h-64 md:h-96 mx-auto flex items-center justify-center">
-              {/* Background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-orange-500/5 rounded-3xl blur-3xl" />
+              {/* Background glow effect - Hidden on mobile */}
+              <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-orange-500/5 rounded-3xl blur-3xl" />
               
-              {/* Timeline visualization */}
-              <div className="relative w-full max-w-5xl">
+              {/* Mobile Animation - Simple before/after */}
+              <div className="md:hidden flex flex-col items-center justify-center space-y-6 w-full max-w-sm">
+                {/* Before State */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  className="text-center"
+                >
+                  <div className="flex justify-center gap-3 mb-3">
+                    <motion.div
+                      initial={{ scale: 0, rotate: -10 }}
+                      animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                      transition={{ delay: 0.7, duration: 0.5, type: "spring" }}
+                      className="w-12 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg shadow-lg flex items-center justify-center"
+                    >
+                      <span className="text-white font-bold text-lg">G</span>
+                    </motion.div>
+                    <motion.div
+                      initial={{ scale: 0, rotate: 10 }}
+                      animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                      transition={{ delay: 0.9, duration: 0.5, type: "spring" }}
+                      className="w-12 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg shadow-lg flex items-center justify-center"
+                    >
+                      <span className="text-white font-bold text-lg">O</span>
+                    </motion.div>
+                  </div>
+                  <p className="text-sm text-gray-600 font-medium">Before: Scattered</p>
+                </motion.div>
+
+                {/* Arrow */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 1.2, duration: 0.5 }}
+                  className="flex justify-center"
+                >
+                  <motion.div
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg"
+                  >
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </motion.div>
+                </motion.div>
+
+                {/* After State */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 1.5, duration: 0.6 }}
+                  className="text-center"
+                >
+                  <motion.div
+                    initial={{ scale: 0, rotate: 180 }}
+                    animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                    transition={{ delay: 1.7, duration: 0.8, type: "spring" }}
+                    className="w-16 h-18 bg-gradient-to-br from-blue-400 via-purple-500 to-purple-700 rounded-xl shadow-xl mx-auto mb-3 flex items-center justify-center relative"
+                  >
+                    <span className="text-white font-bold text-xl">E</span>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : {}}
+                      transition={{ delay: 2, duration: 0.3 }}
+                      className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
+                    >
+                      <span className="text-white text-xs font-bold">✓</span>
+                    </motion.div>
+                  </motion.div>
+                  <p className="text-sm text-green-600 font-medium">After: Unified</p>
+                </motion.div>
+              </div>
+              
+              {/* Desktop Timeline visualization */}
+              <div className="hidden md:block relative w-full max-w-5xl">
                 {/* Enhanced timeline line with progress effect */}
                 <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200 rounded-full transform -translate-y-1/2 overflow-hidden">
                   <motion.div
