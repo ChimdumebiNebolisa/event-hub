@@ -57,6 +57,11 @@ const Dashboard = () => {
     providerId: '',
     providerName: ''
   });
+  const [deleteAccountDialog, setDeleteAccountDialog] = useState<{
+    open: boolean;
+  }>({
+    open: false
+  });
   const [showAccountDetails, setShowAccountDetails] = useState(false);
   
   // Search and filtering with real-time events
@@ -135,6 +140,30 @@ const Dashboard = () => {
         providerId: '',
         providerName: ''
       });
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    try {
+      // Clear all local storage
+      localStorage.clear();
+      
+      // Delete user account from Firebase
+      if (user) {
+        await user.delete();
+      }
+      
+      toast.success('Account deleted successfully. You will be redirected to the home page.');
+      
+      // Redirect to home page after a short delay
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000);
+      
+    } catch (error: unknown) {
+      console.error('Failed to delete account:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      toast.error(`Failed to delete account: ${errorMessage}`);
     }
   };
 
@@ -583,6 +612,40 @@ const Dashboard = () => {
               )}
             </Card>
           </div>
+
+          {/* Delete Account Section */}
+          <div className="mb-8">
+            <Card className="border-red-200 bg-red-50/50">
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5 text-red-600" />
+                  <div>
+                    <CardTitle className="text-red-800">Danger Zone</CardTitle>
+                    <CardDescription className="text-red-600">
+                      Irreversible and destructive actions
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="p-4 bg-red-100 border border-red-200 rounded-lg">
+                    <h4 className="font-semibold text-red-800 mb-2">Delete Account</h4>
+                    <p className="text-sm text-red-700 mb-4">
+                      Permanently delete your EventHub account and all associated data. This action cannot be undone.
+                    </p>
+                    <Button
+                      variant="destructive"
+                      onClick={() => setDeleteAccountDialog({ open: true })}
+                      className="bg-red-600 hover:bg-red-700"
+                    >
+                      Delete Account
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
 
@@ -595,6 +658,18 @@ const Dashboard = () => {
         confirmText="Disconnect Calendar"
         cancelText="Cancel"
         onConfirm={confirmUnlinkProvider}
+        destructive={true}
+      />
+
+      {/* Delete Account Confirmation Dialog */}
+      <ConfirmDialog
+        open={deleteAccountDialog.open}
+        onOpenChange={(open) => setDeleteAccountDialog(prev => ({ ...prev, open }))}
+        title="Delete Account - Are you absolutely sure?"
+        description="This action cannot be undone. This will permanently delete your EventHub account and remove all of your data from our servers. You will lose access to all your calendar integrations and settings."
+        confirmText="Yes, Delete My Account"
+        cancelText="Cancel"
+        onConfirm={handleDeleteAccount}
         destructive={true}
       />
     </div>
