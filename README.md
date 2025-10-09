@@ -283,5 +283,3 @@ firebase deploy
 **LinkedIn**: [Chimdumebi Nebolisa](https://www.linkedin.com/in/chimdumebi-nebolisa-020162389/)
 
 ---
-
-*Event Hub demonstrates expertise in modern web development, API integration, real-time systems, and user experience design. Built with scalability, performance, and maintainability in mind.*
