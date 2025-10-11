@@ -3,43 +3,17 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "hosting": [
-    {
-      "site": "eventhub-buzz",
-      "public": "dist",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "site": "event-hub-38053",
-      "public": "dist",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ],
-      "redirects": [
-        {
-          "source": "**",
-          "destination": "https://eventhub-buzz.web.app",
-          "type": 301
-        }
-      ]
-    }
-  ]
+  "hosting": {
+    "site": "event-hub-38053",
+    "public": "dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
+      {
+        "source": "/**",
+        "destination": "https://eventhub.buzz",
+        "type": 301
+      }
+    ],
+    "rewrites": [{ "source": "**", "destination": "/index.html" }]
+  }
 }
