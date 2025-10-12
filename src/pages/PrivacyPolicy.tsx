@@ -75,7 +75,37 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Data Storage and Security</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Data Sharing, Transfer, and Disclosure</h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  <strong>EventHub does NOT sell, rent, trade, or share your Google user data with third parties for marketing or advertising purposes.</strong>
+                </p>
+                <p>
+                  We maintain strict data privacy standards and only use your Google Calendar data as follows:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>No Third-Party Sharing:</strong> Your Google Calendar events, email address, and profile information are never shared with, sold to, or disclosed to any third-party companies or individuals outside of EventHub</li>
+                  <li><strong>Internal Use Only:</strong> Google user data is used exclusively within the EventHub application to display your calendar events in the unified dashboard</li>
+                  <li><strong>No Data Mining:</strong> We do not analyze, mine, or process your Google Calendar data for any purpose other than displaying it to you</li>
+                  <li><strong>Infrastructure Services:</strong> Your data is processed using Google's own infrastructure (Firebase, Google Cloud Platform) which are covered by Google's security and privacy standards. No external third-party services have access to your Google user data</li>
+                  <li><strong>No Cross-Platform Sharing:</strong> Data from Google Calendar is not shared with Microsoft services, and vice versa. Each calendar integration remains isolated</li>
+                </ul>
+                <p className="mt-4">
+                  <strong>Limited Disclosure Exceptions:</strong> We may only disclose your information if:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Required by law, legal process, or government request</li>
+                  <li>Necessary to protect the rights, property, or safety of EventHub, our users, or the public</li>
+                  <li>You explicitly grant permission for a specific disclosure</li>
+                </ul>
+                <p className="mt-4">
+                  <strong>Data Transfers:</strong> Your Google user data remains within Google's infrastructure ecosystem (Firebase, Google Cloud Platform) and is not transferred to external systems or jurisdictions. All data processing occurs within secure Google Cloud regions with appropriate data protection measures.
+                </p>
+              </div>
+            </section>
+
+            <section className="mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Storage and Security</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   Your data is protected using industry-standard security measures:
@@ -91,7 +121,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Third-Party Services</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Third-Party Services</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   EventHub integrates with the following third-party services:
@@ -109,7 +139,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Your Rights and Choices</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Your Rights and Choices</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>You have the following rights regarding your data:</p>
                 <ul className="list-disc pl-6 space-y-2">
@@ -123,7 +153,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Data Retention</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Data Retention</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   We retain your data only as long as necessary to provide our services:
@@ -138,7 +168,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cookies and Local Storage</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Cookies and Local Storage</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   EventHub uses cookies and local storage for:
@@ -156,7 +186,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Changes to This Policy</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Changes to This Policy</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   We may update this Privacy Policy from time to time. We will notify you of any material changes by:
@@ -170,7 +200,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contact Us</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   If you have any questions about this Privacy Policy or our data practices, please contact us:
@@ -184,7 +214,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Compliance</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Compliance</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   This Privacy Policy complies with applicable data protection laws, including:
