@@ -1,14 +1,8 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# robots.txt for https://eventhub.buzz/
 User-agent: *
 Allow: /
+Disallow: /dashboard
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://eventhub.buzz/sitemap.xml

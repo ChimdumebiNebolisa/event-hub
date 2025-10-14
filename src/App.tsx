@@ -12,6 +12,7 @@ import Index from "./pages/Index";
 import Signup from "./pages/Signup";
 import SignIn from "./pages/SignIn";
 import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
@@ -55,6 +56,7 @@ const App = () => (
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/about" element={<About />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />

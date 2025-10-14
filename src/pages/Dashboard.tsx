@@ -7,6 +7,7 @@ import { Calendar, Clock, User, Mail, Link, RefreshCw, Unlink, AlertTriangle, Ch
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import CalendarView from "@/components/CalendarView";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
@@ -189,6 +190,11 @@ const Dashboard = () => {
 
   return (
     <DashboardThemeProvider>
+      <SEO
+        title="Dashboard"
+        description="Manage your unified calendar events from Google and Outlook in one place"
+        noindex={true}
+      />
       <div id="dashboard-container" className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <Navbar />
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 py-6 sm:py-12 lg:py-16 pt-24 sm:pt-24">

@@ -4,13 +4,19 @@ import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <Navbar />
+    <>
+      <SEO
+        title="Privacy Policy"
+        description="Event Hub Privacy Policy - Learn how we protect your data and handle your calendar information"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <Navbar />
       
       <div className="container mx-auto px-6 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 pt-24">
         <div className="max-w-4xl mx-auto">
@@ -233,6 +239,7 @@ const PrivacyPolicy = () => {
       
       <Footer />
     </div>
+    </>
   );
 };
 

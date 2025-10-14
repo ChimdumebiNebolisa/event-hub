@@ -4,6 +4,7 @@ import { useAuthContext } from "@/contexts/AuthContext";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "sonner";
+import SEO from "@/components/SEO";
 
 const SignIn = () => {
   const { signInWithGoogle, signInWithMicrosoft } = useAuthContext();
@@ -76,9 +77,15 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center gradient-hero relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
+    <>
+      <SEO
+        title="Sign In"
+        description="Sign in to Event Hub with your Google or Microsoft account"
+        noindex={true}
+      />
+      <div className="min-h-screen flex items-center justify-center gradient-hero relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent)] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-md mx-auto bg-white rounded-2xl shadow-glow p-8">
@@ -174,6 +181,7 @@ const SignIn = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
@@ -9,16 +10,19 @@ import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Problem />
-      <Integrations />
-      <CTASection />
-      <WhyIBuilt />
-      <Footer />
-      <CookieConsent />
-    </main>
+    <>
+      <SEO />
+      <main className="min-h-screen">
+        <Navbar />
+        <Hero />
+        <Problem />
+        <Integrations />
+        <CTASection />
+        <WhyIBuilt />
+        <Footer />
+        <CookieConsent />
+      </main>
+    </>
   );
 };
 

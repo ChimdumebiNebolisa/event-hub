@@ -1,0 +1,21 @@
+{
+  "name": "Event Hub - Unified Calendar Management",
+  "short_name": "Event Hub",
+  "description": "Connect your Google and Outlook calendars and view everything in one clean, unified feed",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4F46E5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "screenshots": []
+}
+

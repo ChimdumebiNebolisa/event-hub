@@ -29,11 +29,19 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Home
                 </a>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  About
+                </Link>
               </li>
               <li>
                 <a
