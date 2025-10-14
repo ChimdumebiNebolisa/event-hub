@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, Users, Zap } from "lucide-react";
+import { trackCtaClick, appendUTMParams } from "@/lib/track";
 import heroDashboard from "@/assets/hero-dashboard.png";
 
 const Hero = () => {
@@ -125,7 +126,10 @@ const Hero = () => {
                 <Button
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 shadow-large group relative overflow-hidden"
-                  onClick={() => (window.location.href = "/signup")}
+                  onClick={() => {
+                    trackCtaClick("Get Started Free", "hero");
+                    window.location.href = appendUTMParams("/signup");
+                  }}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
@@ -147,7 +151,10 @@ const Hero = () => {
                   size="lg"
                   variant="outline"
                   className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white/50 group"
-                  onClick={() => (window.location.href = "/signin")}
+                  onClick={() => {
+                    trackCtaClick("Sign In", "hero");
+                    window.location.href = appendUTMParams("/signin");
+                  }}
                 >
                   Sign In
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { trackOutboundClick } from "@/lib/track";
 import brandIcon from "@/assets/brand-icon-eventhub.png";
 
 const Footer = () => {
@@ -69,6 +70,7 @@ const Footer = () => {
                 href="https://github.com/ChimdumebiNebolisa"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackOutboundClick("https://github.com/ChimdumebiNebolisa")}
                 className="w-10 h-10 rounded-lg bg-card flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all shadow-soft"
                 aria-label="GitHub"
               >
@@ -78,6 +80,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/chimdumebi-nebolisa-020162389/"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackOutboundClick("https://www.linkedin.com/in/chimdumebi-nebolisa-020162389/")}
                 className="w-10 h-10 rounded-lg bg-card flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all shadow-soft"
                 aria-label="LinkedIn"
               >
@@ -85,6 +88,7 @@ const Footer = () => {
               </a>
               <a
                 href="mailto:chimdumebinebolisa@gmail.com"
+                onClick={() => trackOutboundClick("mailto:chimdumebinebolisa@gmail.com")}
                 className="w-10 h-10 rounded-lg bg-card flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all shadow-soft"
                 aria-label="Email"
               >

@@ -3,11 +3,13 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   onClear: () => void;
+  onSearchPerformed?: (term: string, resultsCount: number) => void;
   placeholder?: string;
   className?: string;
 }
@@ -16,16 +18,27 @@ const SearchBar = ({
   value,
   onChange,
   onClear,
+  onSearchPerformed,
   placeholder = "Search events...",
   className,
 }: SearchBarProps) => {
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
+  const debouncedSearchValue = useDebounce(inputValue, 500);
 
   // Sync inputValue with prop value when it changes externally
   useEffect(() => {
     setInputValue(value);
   }, [value]);
+
+  // Track search when debounced value changes
+  useEffect(() => {
+    if (debouncedSearchValue && onSearchPerformed) {
+      // Note: resultsCount should be passed from parent component
+      // For now we'll trigger without count, parent can call trackSearch with actual count
+      onSearchPerformed(debouncedSearchValue, 0);
+    }
+  }, [debouncedSearchValue, onSearchPerformed]);
 
   // Handle keyboard shortcuts
   useEffect(() => {

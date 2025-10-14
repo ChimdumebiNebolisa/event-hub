@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { trackCtaClick, appendUTMParams } from "@/lib/track";
 
 const CTASection = () => {
   const ref = useRef(null);
@@ -38,7 +39,10 @@ const CTASection = () => {
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 shadow-glow group text-lg px-8"
-              onClick={() => (window.location.href = "/signup")}
+              onClick={() => {
+                trackCtaClick("Sign in with Google", "cta_section");
+                window.location.href = appendUTMParams("/signup");
+              }}
             >
               Sign in with Google
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

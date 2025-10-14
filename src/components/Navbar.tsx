@@ -5,6 +5,7 @@ import { LogOut, User, Menu, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { trackCtaClick, appendUTMParams } from "@/lib/track";
 import logoEventHub from "@/assets/logo-eventhub.png";
 
 const Navbar = () => {
@@ -132,13 +133,15 @@ const Navbar = () => {
             ) : (
               <div className="flex items-center gap-3">
                 <a 
-                  href="/signin" 
+                  href={appendUTMParams("/signin")}
+                  onClick={() => trackCtaClick("Sign in", "navbar")}
                   className="px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-soft hover:shadow-medium text-sm font-medium"
                 >
                   Sign in
                 </a>
                 <a 
-                  href="/signup" 
+                  href={appendUTMParams("/signup")}
+                  onClick={() => trackCtaClick("Sign up", "navbar")}
                   className="px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary/5 transition-all text-sm font-medium"
                 >
                   Sign up
@@ -221,16 +224,22 @@ const Navbar = () => {
               ) : (
                 <div className="pt-4 border-t border-border space-y-3">
                   <a 
-                    href="/signin" 
+                    href={appendUTMParams("/signin")}
                     className="block w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all text-sm font-medium text-center"
-                    onClick={closeMobileMenu}
+                    onClick={() => {
+                      trackCtaClick("Sign in", "navbar_mobile");
+                      closeMobileMenu();
+                    }}
                   >
                     Sign in
                   </a>
                   <a 
-                    href="/signup" 
+                    href={appendUTMParams("/signup")}
                     className="block w-full px-4 py-3 rounded-lg border border-primary text-primary hover:bg-primary/5 transition-all text-sm font-medium text-center"
-                    onClick={closeMobileMenu}
+                    onClick={() => {
+                      trackCtaClick("Sign up", "navbar_mobile");
+                      closeMobileMenu();
+                    }}
                   >
                     Sign up
                   </a>

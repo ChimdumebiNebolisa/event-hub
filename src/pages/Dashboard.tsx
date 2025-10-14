@@ -17,6 +17,7 @@ import SearchBar from "@/components/SearchBar";
 import FilterPanel from "@/components/FilterPanel";
 import ThemeToggle from "@/components/ThemeToggle";
 import { DashboardThemeProvider } from "@/contexts/DashboardThemeContext";
+import { trackSearch } from "@/lib/track";
 // Removed mock data imports - using real API data only
 
 const Dashboard = () => {
@@ -234,6 +235,7 @@ const Dashboard = () => {
                       value={searchFilters.query}
                       onChange={(query) => updateFilters({ query })}
                       onClear={() => updateFilters({ query: '' })}
+                      onSearchPerformed={(term) => trackSearch(term, filteredEvents.length)}
                       placeholder="Search events, attendees, locations..."
                     />
                   </div>

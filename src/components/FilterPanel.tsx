@@ -20,6 +20,7 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { UnifiedCalendar } from '@/lib/types';
 import { SearchFilters, createDateRangeFilter } from '@/hooks/useEventSearch';
+import { trackFilterChange } from '@/lib/track';
 
 interface FilterPanelProps {
   filters: SearchFilters;
@@ -51,6 +52,7 @@ const FilterPanel = ({
       : [...filters.calendars, calendarId];
     
     onFiltersChange({ calendars: newCalendars });
+    trackFilterChange('calendar', calendarId);
   };
 
 
@@ -60,11 +62,13 @@ const FilterPanel = ({
       : [...filters.sources, source];
     
     onFiltersChange({ sources: newSources });
+    trackFilterChange('source', source);
   };
 
   const handleQuickDateRange = (range: 'today' | 'tomorrow' | 'thisWeek' | 'nextWeek' | 'thisMonth' | 'nextMonth') => {
     const dateRange = createDateRangeFilter(range);
     onFiltersChange({ dateRange });
+    trackFilterChange('date_range', range);
   };
 
   const clearDateRange = () => {
