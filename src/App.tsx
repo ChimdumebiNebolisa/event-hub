@@ -1,11 +1,13 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { RealtimeProvider } from "@/contexts/RealtimeContext";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { trackPageView, initUTMTracking } from "@/lib/track";
 import Index from "./pages/Index";
 import Signup from "./pages/Signup";
 import SignIn from "./pages/SignIn";
@@ -16,6 +18,27 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Component to track route changes
+function RouteChangeTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Track page view on route change
+    trackPageView(location.pathname + location.search, document.title);
+  }, [location]);
+
+  return null;
+}
+
+// Component to initialize UTM tracking
+function UTMInitializer() {
+  useEffect(() => {
+    initUTMTracking();
+  }, []);
+
+  return null;
+}
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
@@ -25,6 +48,8 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <RouteChangeTracker />
+              <UTMInitializer />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/signup" element={<Signup />} />
