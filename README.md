@@ -40,7 +40,7 @@ graph LR
     B --> D[Microsoft Graph API]
     C --> E[Event Normalizer<br/>src/lib/types.ts]
     D --> E
-    E --> F[Firestore<br/>users/{uid}/events]
+    E --> F["Firestore<br/>users/USER_ID/events"]
     F --> G[Real-time Listener<br/>onSnapshot]
     G --> A
 ```
