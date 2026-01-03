@@ -25,13 +25,13 @@ A unified calendar dashboard that synchronizes Google Calendar and Microsoft Out
 1. Click "Get Started" on the homepage
 2. Choose "Sign in with Google" or "Sign in with Microsoft"
 
-![EventHub Login Page](./login evenhub.png)
+![EventHub Login Page](./login-eventhub.png)
 
 3. Grant calendar read permissions when prompted
 4. If you have both accounts, link the second provider from the dashboard settings
 5. View your unified calendar events in the dashboard
 
-![EventHub Dashboard](./dashboard eventhub.png)
+![EventHub Dashboard](./dashboard-eventhub.png)
 
 6. Use the search bar to filter events by title or description
 7. Click any event to see details (attendees, location, description)
